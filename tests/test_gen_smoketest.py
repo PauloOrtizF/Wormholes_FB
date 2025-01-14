@@ -3,7 +3,6 @@ import pytest
 from tempfile import TemporaryDirectory, NamedTemporaryFile
 from argparse import Namespace
 
-
 @pytest.mark.parametrize('gen_version', [2, 4, 5, 6, 7, 8, 9])
 @pytest.mark.parametrize('num', [0, 10, 13])
 def test_gen(gen_version, num, batch_size=5):
