@@ -44,11 +44,12 @@ class GenV1:
         self.gen_version = extract_from_string(str(self.__class__), 'GenV')
         self.args = args
         self.data_root = data_root
-        ds = RestrictedImageNet(f"{self.data_root}/ilsvrc")
+        ds = RestrictedImageNet(f"{self.data_root}/ilsvrc") #this is us making ds to be the dataset we will use. it calls the function of the RIN and selects the directory of where to find it 
         get_mapped_RIN = lambda resume_name: get_restricted_imagenet_mapped_model(arch='resnet50', 
                                                                                   restricted_imagenet_ds=ds, 
                                                                                   pytorch_pretrained=False, 
-                                                                                  resume_path=f"{PROJECT_ROOT}/checkpoints/{resume_name}")[0].eval()
+                                                                                  resume_path=f"{PROJECT_ROOT}/checkpoints/{resume_name}")[0].eval() #this is making the mapped model to our restricted imagenet. The mapping is from imagenet to our restricted classes
+        #mapping the model names to the configurations on the checkpoints (i.e., the pre-trained models)
         self.model_kwargs_dict = {
             'resnet50_vanilla_mapped_RIN': {
                 'attacker':
@@ -87,6 +88,7 @@ class GenV1:
                 for eps_eval in [1, 3, 10]    
                 }
 
+        #this is preparing the dataset metadata, it is loading the image paths for each class into the data dictionary and maps the class names to indices for efficient access
         folder_ds = ImageFolder(root=f"{ds.data_path}/val", label_mapping=ds.label_mapping)
         data_dict = invert_dict(dict(folder_ds.samples))
         k = min([len(v) for v in data_dict.values()])
@@ -153,7 +155,7 @@ class GenV1:
             ds[k] = ds[k].astype('object')
         return ds
     
-    #generates metadata for adversarial samples, based on attack or contrast blending configurations.
+    #generates metadata for adversarial samples, based on attack or contrast blending configurations. it converst image paths and metadata into a structured dataset
     def make_meta_ds(self, triplet_paths_list):
         meta_list = self.make_meta_list(triplet_paths_list)
         assert len(meta_list), "No data found."
@@ -164,7 +166,7 @@ class GenV1:
         ds = ds.rename({'dim_0': 'image_id'})
         rd = random.Random()
         rd.seed(self.gen_version)
-        ds = ds.assign_coords(image_id=[f"{uuid.UUID(int=rd.getrandbits(128)).hex}.png" for _ in ds.image_id])
+        ds = ds.assign_coords(image_id=[f"{uuid.UUID(int=rd.getrandbits(128)).hex}.png" for _ in ds.image_id]) #this is where the images are getting named
         return ds
     
     def make_meta_list(self, triplet_paths_list):
@@ -203,7 +205,7 @@ class GenV1:
                 ]
             meta_list.append(row + [np.nan] * (len(self.field_dict) - len(row)))
                          
-    #adds metadata entries for attacks
+    #adds metadata entries for attacks so you know exactly what the data for each image is 
     def add_attack(self, meta_list, gen):
         for model_name in self.model_kwargs_dict:
             for hp, triplet_index, target_class_name, orig_class_name in gen(self.attack_hparams_tup_list):
@@ -244,7 +246,7 @@ class GenV1:
         self.model_subjects_predict(ds, df_agg, g, batch_size)
         ds.sel(image_id=list(df_agg.image_id)).to_netcdf(f"{self.output_folder}/{meta_filename}")
 
-    #generates adversarial examples using either attacks or interpolation
+    #generates adversarial examples using either attacks or interpolation. This means eigher perturbation that push predictions towards target class.
     def make_adv(self, ds, g, attacker_model, cnk, images_source, targets):
         if np.isnan(g.interp_alpha):
             im_adv, budget_usage = attacker_model.attack_target(images_source, targets, 
@@ -253,7 +255,7 @@ class GenV1:
                                                                 n_iter=g.n_iter, 
                                                                 do_tqdm=True)
                             
-        else:  # Contrast blend
+        else:  # Contrast blend (blending between two different images)
             target_images_paths = [self.rng_job.choice(self.data_dict[class_name]) for class_name in cnk.target_class_name]
             images_target = self.get_images(target_images_paths)
             im_adv, budget_usage = contrast_blend(images_source, images_target, g.interp_alpha, eps=g.budget)
