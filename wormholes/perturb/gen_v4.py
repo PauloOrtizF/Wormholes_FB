@@ -22,12 +22,12 @@ class GenV4(GenV3):
                                                   (3., .3, 200), (2., .3, 200), (1., .3, 200), (.5, .1, 200), (.1, .02, 200),
                                                   (0., 0., 0)
                                                   ]]
-        # Discard contrast-blend
+        # Discard contrast-blend (which means that two images cannot be mixed into one)
         self.interp_hparams_tup_list = []
 
     #This method prepares the data to be used for untargeted attacks.
     def get_data(self, n_sample_class=30):
-        # Convert labels to class names and balance sample count by the minimum per class
+        # Convert labels to class names and balance sample count by the minimum per class (because RIN has different class sizes)
         triplet_paths_list = []
         for i, (class_name, image_paths) in enumerate(self.data_dict.items()):
             for j in range(n_sample_class):
