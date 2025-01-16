@@ -1,13 +1,20 @@
 """
     Implementation of RestrictedImageNet-based category modulation by attacking model logits
 """
-    
+
+"""
+This code defines a Python class (GenV1) for generating adversarial examples and conducting experiments with a Restricted ImageNet dataset.
+The key goal seems to be the generation and evaluation of adversarial examples to modulate model logits
+(the outputs of a neural network before softmax) and analyze their behavior.
+
+It includes methods for data handling, adversarial image generation, model evaluation, and result saving.
+"""
     
 from wormholes.perturb.utils import *
 
 
 class GenV1:
-    field_dict = {
+    field_dict = { #this defines the structure for the metadata for the adversarial samples. These are the different things I can call.
         'model_name': str,
         'budget': float, 'n_iter': int, 'step_size': float, 'interp_alpha': float,
         'target_class_name': str,
@@ -17,9 +24,9 @@ class GenV1:
         'budget_usage': float, 
         'target_image_path': str,
         }
-    group_columns = ['model_name', 'budget', 'n_iter', 'step_size', 'interp_alpha']
-    class_dict = CLASS_DICT['RestrictedImageNet']
-    attack_hparams_tup_list = [namedtuple('attack_hparams', ['eps', 'step_size', 'n_iter'])(*x) 
+    group_columns = ['model_name', 'budget', 'n_iter', 'step_size', 'interp_alpha'] #columns used for grouping data in experiments
+    class_dict = CLASS_DICT['RestrictedImageNet'] #maps class labels to human-readble names for Restricted ImageNet
+    attack_hparams_tup_list = [namedtuple('attack_hparams', ['eps', 'step_size', 'n_iter'])(*x) #configurations for adversarial attacks
                                for x in [(300, 4, 10_000), (200, 3, 10_000), (150, 2, 10_000), 
                                          (100, 2, 5000), (50, 2, 2000), (30, .5, 1000), 
                                          (10, .5, 500), (5, .5, 500), 
@@ -29,7 +36,8 @@ class GenV1:
     interp_hparams_tup_list = [namedtuple('interp_hparams', ['eps', 'alpha_interp'])(*x) 
                                for x in itertools.product([300, 200, 150, 100, 50, 30, 10, 5, 2.5, 1., .5, .1], 
                                                           [0.])]
-    
+    #the __init__ below sets up the environment, loads RIN, defines models, maps them to checkpoint files and prepares data_dict for loading class specific image samples
+
     def __init__(self, args=None, data_root=f"{PROJECT_ROOT}/data"):
         seed = 0 if args is None else args.seed
         set_seed(seed)
@@ -92,7 +100,8 @@ class GenV1:
         
         self.model_subjects_names = np.unique(chained(list(x['model_subjects'].keys()) for x in self.model_kwargs_dict.values()))
         self.output_folder = f"{PROJECT_ROOT}/results/cache/gen_v{self.gen_version}"
-        
+
+    #main method to execure the experiment. It screens the dataset, groups tasks, and processes them in chunks for efficiency.    
     def run(self):
         args = self.args
         self.rng_job = np.random.default_rng(int(args.num or 0))
@@ -107,7 +116,8 @@ class GenV1:
         group, df_agg = self.screen_job_work(df)
         self.make_and_save_results(ds, df_agg, group, 
                                    batch_size=args.batch_size)
-        
+
+    #groups the dataset based on group columns    
     def screen_job_work(self, df, print=True):
         columns_group = self.group_columns
         if print:
@@ -119,6 +129,7 @@ class GenV1:
         df_agg = df.loc[df_indices]
         return group, df_agg
 
+    #prepares the dataset as a structured object. Includes space for storing predictions and other metadata
     def get_ds(self):
         triplet_paths_list = self.get_data()
         ds = self.make_meta_ds(triplet_paths_list)
@@ -142,6 +153,7 @@ class GenV1:
             ds[k] = ds[k].astype('object')
         return ds
     
+    #generates metadata for adversarial samples, based on attack or contrast blending configurations.
     def make_meta_ds(self, triplet_paths_list):
         meta_list = self.make_meta_list(triplet_paths_list)
         assert len(meta_list), "No data found."
@@ -191,6 +203,7 @@ class GenV1:
                 ]
             meta_list.append(row + [np.nan] * (len(self.field_dict) - len(row)))
                          
+    #adds metadata entries for attacks
     def add_attack(self, meta_list, gen):
         for model_name in self.model_kwargs_dict:
             for hp, triplet_index, target_class_name, orig_class_name in gen(self.attack_hparams_tup_list):
@@ -231,6 +244,7 @@ class GenV1:
         self.model_subjects_predict(ds, df_agg, g, batch_size)
         ds.sel(image_id=list(df_agg.image_id)).to_netcdf(f"{self.output_folder}/{meta_filename}")
 
+    #generates adversarial examples using either attacks or interpolation
     def make_adv(self, ds, g, attacker_model, cnk, images_source, targets):
         if np.isnan(g.interp_alpha):
             im_adv, budget_usage = attacker_model.attack_target(images_source, targets, 
