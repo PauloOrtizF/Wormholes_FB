@@ -9,7 +9,7 @@ CLASS_DICT = {
           'RestrictedImageNet': {-1: 'noise', 0: 'dog', 1: 'cat', 
                    2: 'frog', 3: 'turtle', 4: 'bird', 
                    5: 'primate', 6: 'fish', 7: 'crab', 
-                   8: 'insect'},
+                   8: 'insect', 9: 'bear', 10: 'snake', 11: 'rabbit'},
            'CustomImageNet': {
                'living_9': {-1: 'noise', 0: 'dog', 1: 'bird', 
                2: 'arthropod', 3: 'reptile', 4: 'primate',                                5: 'fish', 6: 'cat', 7: 'bovid', 8: 'amphibian'}

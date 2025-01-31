@@ -13,10 +13,11 @@ from wormholes.perturb.gen_v3 import GenV3
 
 class GenV4(GenV3):
     # The __init__ method initializes the class and sets up attack parameters. eps (maximum allowable pert)
+    # I am changing the hparamts tup list. I am getting rid of (300, 4, 10_000), (200, 3, 10_000), (150, 2, 10_000)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.attack_hparams_tup_list = [namedtuple('attack_hparams', ['eps', 'step_size', 'n_iter'])(*x) 
-                                        for x in [(300, 4, 10_000), (200, 3, 10_000), (150, 2, 10_000), 
+                                        for x in [
                                                   (100, 2, 5000), (50, 2, 2000), (40, 2, 2000), (30, 2, 2000), (25, .5, 1000), (20, .5, 1000), 
                                                   (15, .5, 500), (10, .5, 500), (7.5, .5, 500), (5, .5, 500), 
                                                   (3., .3, 200), (2., .3, 200), (1., .3, 200), (.5, .1, 200), (.1, .02, 200),
@@ -25,8 +26,9 @@ class GenV4(GenV3):
         # Discard contrast-blend (which means that two images cannot be mixed into one)
         self.interp_hparams_tup_list = []
 
-    #This method prepares the data to be used for untargeted attacks.
-    def get_data(self, n_sample_class=30):
+    #This method prepares the data to be used for untargeted attacks. 
+    # Paulo changed the line of n_sample_class from 30 to 60 in this situation
+    def get_data(self, n_sample_class=60):
         # Convert labels to class names and balance sample count by the minimum per class (because RIN has different class sizes)
         triplet_paths_list = []
         for i, (class_name, image_paths) in enumerate(self.data_dict.items()):

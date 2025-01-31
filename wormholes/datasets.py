@@ -258,6 +258,11 @@ class RestrictedImageNet(DataSet):
     * Fish (classes 389-397)
     * Crab (classes 118-121)
     * Insect (classes 300-319)
+    
+    PAULO's 3 EXTRA CLASSES
+    * Bear (classes 294-297)
+    * Snake (classes 52-64)
+    * Rabbit (classses 330-332)
 
     To initialize, just provide the path to the full ImageNet dataset
     (no special formatting required).
