@@ -4,10 +4,10 @@ from cox import store
 
 # dog (117), cat (5), frog (3), turtle (5), bird (21), 
 # monkey (14), fish (9), crab (4), insect (20)
-# bear (4), snake (13), rabbit (3) 
+# bear (4), elephant (2), rabbit (3) 
 RESTRICTED_IMAGNET_RANGES = [(151, 268), (281, 285), 
         (30, 32), (33, 37), (80, 100), (365, 382),
-          (389, 397), (118, 121), (300, 319), (294, 297), (52, 64), (330, 332)]
+          (389, 397), (118, 121), (300, 319), (294, 297), (385, 386), (330, 332)]
 
 CKPT_NAME = 'checkpoint.pt'
 BEST_APPEND = '.best'

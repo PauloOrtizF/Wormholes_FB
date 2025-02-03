@@ -260,8 +260,9 @@ class RestrictedImageNet(DataSet):
     * Insect (classes 300-319)
     
     PAULO's 3 EXTRA CLASSES
+    I had to change from snake to elephant. Let's see how that works... 
     * Bear (classes 294-297)
-    * Snake (classes 52-64)
+    * Elephant (classes 385-386)
     * Rabbit (classses 330-332)
 
     To initialize, just provide the path to the full ImageNet dataset
