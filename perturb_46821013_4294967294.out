@@ -1,0 +1,1504 @@
+----------------------------------------
+Start task prologue Fri Feb  7 18:11:50 CET 2025
+----------------------------------------
+Step ID:         46821013.
+Username:        pauort
+Group:           predatt
+Asked resources: walltime=4:00:00,nodes=1,cpus=1,mem=24G
+Queue:           gpu
+Compute nodes:   dccn-c083
+----------------------------------------
+End task prologue Fri Feb  7 18:11:50 CET 2025
+----------------------------------------
+load cuda module...
+
+load anaconda module...s
+
+Check loaded modules:
+Currently Loaded Modulefiles:
+ 1) cluster/1.0(default)        6) apptainer/1.3.3(default)    
+ 2) matlab/R2024a(default)      7) slurm/1.0(default)          
+ 3) R/4.3.3(default)            8) anaconda3/2024.06(default)  
+ 4) freesurfer/7.3.2(default)   9) cuda/11.4(default)          
+ 5) fsl/6.0.6(default)         
+
+Checking available GPU:
+Fri Feb  7 18:11:50 2025       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.113.01             Driver Version: 535.113.01   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  | 00000000:C1:00.0 Off |                    0 |
+| N/A   31C    P0              52W / 400W |      2MiB / 40960MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+Checkin cuda availability:
+Output of which nvcc to check cuda path:
+/opt/cuda/11.4/bin/nvcc
+
+Check cuda version with nvcc --version:
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Wed_Jun__2_19:15:15_PDT_2021
+Cuda compilation tools, release 11.4, V11.4.48
+Build cuda_11.4.r11.4/compiler.30033411_0
+CUDA test passed. Proceeding with main computation.
+Running iteration: 0
+Job [0]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+(*) group(model_name='resnet50_robust_mapped_RIN_l2_3_0', budget=0.0, n_iter=0, step_size=0.0, interp_alpha=nan)
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+chunk [1/1]
+Model-subject [resnet50_robust_mapped_RIN_l2_1_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt' (epoch 176)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt' (epoch 131)
+Model-subject [resnet50_robust_mapped_RIN_l2_10_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt' (epoch 200)
+Model-subject [resnet50_vanilla_mapped_RIN_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt' (epoch 171)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+Done.
+Running iteration: 1
+Job [1]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+(*) group(model_name='resnet50_robust_mapped_RIN_l2_3_0', budget=7.5, n_iter=500, step_size=0.5, interp_alpha=nan)
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+chunk [1/1]
+Model-subject [resnet50_robust_mapped_RIN_l2_1_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt' (epoch 176)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt' (epoch 131)
+Model-subject [resnet50_robust_mapped_RIN_l2_10_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt' (epoch 200)
+Model-subject [resnet50_vanilla_mapped_RIN_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt' (epoch 171)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+Done.
+Running iteration: 2
+Job [2]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+(*) group(model_name='resnet50_robust_mapped_RIN_l2_3_0', budget=10.0, n_iter=500, step_size=0.5, interp_alpha=nan)
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+chunk [1/1]
+Model-subject [resnet50_robust_mapped_RIN_l2_1_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt' (epoch 176)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt' (epoch 131)
+Model-subject [resnet50_robust_mapped_RIN_l2_10_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt' (epoch 200)
+Model-subject [resnet50_vanilla_mapped_RIN_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt' (epoch 171)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+Done.
+Running iteration: 3
+Job [3]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+(*) group(model_name='resnet50_robust_mapped_RIN_l2_3_0', budget=12.5, n_iter=500, step_size=0.5, interp_alpha=nan)
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+chunk [1/1]
+Model-subject [resnet50_robust_mapped_RIN_l2_1_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt' (epoch 176)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt' (epoch 131)
+Model-subject [resnet50_robust_mapped_RIN_l2_10_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt' (epoch 200)
+Model-subject [resnet50_vanilla_mapped_RIN_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt' (epoch 171)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+Done.
+Running iteration: 4
+Job [4]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+(*) group(model_name='resnet50_robust_mapped_RIN_l2_3_0', budget=15.0, n_iter=500, step_size=0.5, interp_alpha=nan)
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+chunk [1/1]
+Model-subject [resnet50_robust_mapped_RIN_l2_1_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt' (epoch 176)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt' (epoch 131)
+Model-subject [resnet50_robust_mapped_RIN_l2_10_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt' (epoch 200)
+Model-subject [resnet50_vanilla_mapped_RIN_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt' (epoch 171)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+Done.
+Running iteration: 5
+Job [5]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+(*) group(model_name='resnet50_robust_mapped_RIN_l2_3_0', budget=20.0, n_iter=1000, step_size=0.5, interp_alpha=nan)
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+chunk [1/1]
+Model-subject [resnet50_robust_mapped_RIN_l2_1_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_1_0_v2.pt' (epoch 176)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0_v2.pt' (epoch 131)
+Model-subject [resnet50_robust_mapped_RIN_l2_10_0_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_10_0_v2.pt' (epoch 200)
+Model-subject [resnet50_vanilla_mapped_RIN_v2]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_vanilla_v2.pt' (epoch 171)
+Model-subject [resnet50_robust_mapped_RIN_l2_3_0]
+=> loading checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt'
+=> loaded checkpoint '/project/3018078.01/Gaziv/Wormholes_FB/checkpoints/imagenet_l2_3_0.pt' (epoch 105)
+Done.
+Running iteration: 6
+Job [6]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 7
+Job [7]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 8
+Job [8]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 9
+Job [9]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 10
+Job [10]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 11
+Job [11]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 12
+Job [12]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 13
+Job [13]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 14
+Job [14]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 15
+Job [15]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 16
+Job [16]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 17
+Job [17]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 18
+Job [18]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 19
+Job [19]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 20
+Job [20]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 21
+Job [21]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 22
+Job [22]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 23
+Job [23]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 24
+Job [24]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 25
+Job [25]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 26
+Job [26]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 27
+Job [27]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 28
+Job [28]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 29
+Job [29]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 30
+Job [30]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 31
+Job [31]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 32
+Job [32]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 33
+Job [33]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 34
+Job [34]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 35
+Job [35]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 36
+Job [36]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 37
+Job [37]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 38
+Job [38]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 39
+Job [39]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 40
+Job [40]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 41
+Job [41]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 42
+Job [42]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 43
+Job [43]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 44
+Job [44]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 45
+Job [45]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 46
+Job [46]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 47
+Job [47]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 48
+Job [48]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 49
+Job [49]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 50
+Job [50]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 51
+Job [51]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 52
+Job [52]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 53
+Job [53]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 54
+Job [54]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 55
+Job [55]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 56
+Job [56]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 57
+Job [57]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 58
+Job [58]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 59
+Job [59]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 60
+Job [60]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 61
+Job [61]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 62
+Job [62]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 63
+Job [63]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 64
+Job [64]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 65
+Job [65]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 66
+Job [66]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 67
+Job [67]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 68
+Job [68]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 69
+Job [69]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 70
+Job [70]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 71
+Job [71]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 72
+Job [72]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 73
+Job [73]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 74
+Job [74]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 75
+Job [75]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 76
+Job [76]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 77
+Job [77]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 78
+Job [78]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 79
+Job [79]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 80
+Job [80]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 81
+Job [81]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 82
+Job [82]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 83
+Job [83]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 84
+Job [84]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 85
+Job [85]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 86
+Job [86]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 87
+Job [87]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 88
+Job [88]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 89
+Job [89]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 90
+Job [90]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 91
+Job [91]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 92
+Job [92]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 93
+Job [93]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 94
+Job [94]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 95
+Job [95]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 96
+Job [96]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 97
+Job [97]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 98
+Job [98]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 99
+Job [99]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+Running iteration: 100
+Job [100]
+Total number of configs: 6
+Skipping lizard: No OOD data found.
+Skipping bear: No OOD data found.
+Skipping rabbit: No OOD data found.
+Skipping gazelle: No OOD data found.
+0) ('resnet50_robust_mapped_RIN_l2_3_0', 0.0, 0, 0.0, nan)
+1) ('resnet50_robust_mapped_RIN_l2_3_0', 7.5, 500, 0.5, nan)
+2) ('resnet50_robust_mapped_RIN_l2_3_0', 10.0, 500, 0.5, nan)
+3) ('resnet50_robust_mapped_RIN_l2_3_0', 12.5, 500, 0.5, nan)
+4) ('resnet50_robust_mapped_RIN_l2_3_0', 15.0, 500, 0.5, nan)
+5) ('resnet50_robust_mapped_RIN_l2_3_0', 20.0, 1000, 0.5, nan)
+----------------------------------------
+Start job epilogue Fri Feb  7 18:31:43 CET 2025
+----------------------------------------
+Job ID:          46821013
+Job Exit Code:   1:0
+Username:        pauort
+Group:           predatt
+Queue:           gpu
+Compute nodes:   dccn-c083
+Asked resources: walltime=4:00:00,nodes=1,cpus=1,mem=24G
+Used resources:  cputime=00:19:53,walltime=00:19:53,memory=0
+----------------------------------------
+End job epilogue Fri Feb  7 18:31:43 CET 2025
+----------------------------------------

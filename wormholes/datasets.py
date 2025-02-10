@@ -255,14 +255,14 @@ class RestrictedImageNet(DataSet):
     * Turtle (classes 33-37)
     * Bird (classes 80-100)
     * Monkey (classes 365-382)
-    * Fish (classes 389-397)
+    * Lizard (classes 38-47) #I decided to get rid of the class fish, as the images that it included were not very usable and now I am planning to have a specific set of classes.
     * Crab (classes 118-121)
     * Insect (classes 300-319)
     
     PAULO's 3 EXTRA CLASSES
-    I had to change from snake to elephant. Let's see how that works... 
+    I had to change from snake to elephant and now to gazelle. Let's see how that works... 
     * Bear (classes 294-297)
-    * Elephant (classes 385-386)
+    * Gazelle (classes 351-353) #this class makes sense because they have very good iamges with nice horns. 
     * Rabbit (classses 330-332)
 
     To initialize, just provide the path to the full ImageNet dataset

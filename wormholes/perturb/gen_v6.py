@@ -13,29 +13,43 @@ from wormholes.perturb.gen_v3 import GenV3
 class GenV6(GenV3):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Drop robust model 1.0
-        self.model_kwargs_dict = {k: v for k, v in self.model_kwargs_dict.items() if k not in ['resnet50_robust_mapped_RIN_l2_1_0']}
+        # Drop robust model 1.0, 10 and vanilla (I am trying to reduce the computational load)
+        self.model_kwargs_dict = {k: v for k, v in self.model_kwargs_dict.items() if k not in ['resnet50_robust_mapped_RIN_l2_1_0',
+                                                                                               'resnet50_vanilla_mapped_RIN',
+                                                                                               'resnet50_robust_mapped_RIN_l2_10_0']}
+        #I have emptied the hparam list, so there should not be contrast blends.
         self.contrast_blend_model_subjects = {k: v for k, v in self.contrast_blend_model_subjects.items() if k not in ['resnet50_robust_mapped_RIN_l2_1_0_v2']}
         self.model_subjects_names = np.unique(chained(list(x['model_subjects'].keys()) for x in self.model_kwargs_dict.values()))
         
         self.data_dict_OOD = {class_name: glob.glob(f"{self.data_root}/OOD/{class_name}/*") for class_name in self.data_dict}
-        self.data_ANI = glob.glob(f"{self.data_root}/ANI/*")
         
+        #Drop the ANI dataset to reduce computations
+        # self.data_ANI = glob.glob(f"{self.data_root}/ANI/*")
+        
+        #Change the hyperparameters so that they are not so intense, in this way computations should be reduced (ORIGINAL IS BELOW COMMENTED)
         self.attack_hparams_tup_list = [namedtuple('attack_hparams', ['eps', 'step_size', 'n_iter'])(*x) 
-                                        for x in [(50, 2, 2000), (40, 2, 2000), (30, 2, 2000), (25, .5, 1000), (20, .5, 1000), 
+                                        for x in [(30, 2, 2000), (20, .5, 1000), (15, .5, 500), (12.5, .5, 500), (10, .5, 500), (7.5, .5, 500), 
                                                   (0., 0., 0)
                                                   ]]
         
-        self.interp_hparams_tup_list = [namedtuple('interp_hparams', ['eps', 'alpha_interp'])(*x) 
-                               for x in itertools.product([50, 40, 30, 25, 20], 
-                                                          [0.])]
+        # self.attack_hparams_tup_list = [namedtuple('attack_hparams', ['eps', 'step_size', 'n_iter'])(*x) 
+        #                                 for x in [(50, 2, 2000), (40, 2, 2000), (30, 2, 2000), (25, .5, 1000), (20, .5, 1000), 
+        #                                           (0., 0., 0)
+        #                                           ]]
+        
+        # Discard contrast-blend (which means that two images cannot be mixed into one) -- ORIGINAL IS BELOW
+        self.interp_hparams_tup_list = []
+
+        # self.interp_hparams_tup_list = [namedtuple('interp_hparams', ['eps', 'alpha_interp'])(*x) 
+        #                        for x in itertools.product([50, 40, 30, 25, 20], 
+        #                                                   [0.])]
         
     def run(self):
         args = self.args  
          
         self.rng_job = np.random.default_rng(int(args.seed or 0))
               
-        configs = list(itertools.product(self.model_kwargs_dict.items(), self.attack_hparams_tup_list)) + self.interp_hparams_tup_list
+        configs = list(itertools.product(self.model_kwargs_dict.items(), self.attack_hparams_tup_list)) #+ self.interp_hparams_tup_list
         cprintm(f"Total number of configs: {len(configs)}")
         
         ds = self.get_ds()
@@ -48,17 +62,26 @@ class GenV6(GenV3):
                                    batch_size=args.batch_size)
         
     def get_data(self):
-        # Arbitrary Natural Images
-        triplet_paths_list = [[(img_path[len(f"{self.data_root}/"):], 'ANI'), target_class_name] 
-                              for img_path in np.random.choice(self.data_ANI, size=20, replace=False) 
-                              for target_class_name in self.data_dict]
+        # Arbitrary Natural Images (DROPPED)
+        # triplet_paths_list = [[(img_path[len(f"{self.data_root}/"):], 'ANI'), target_class_name] 
+        #                       for img_path in np.random.choice(self.data_ANI, size=20, replace=False) 
+        #                       for target_class_name in self.data_dict]
+        triplet_paths_list = [] #I added this line, but if I want the ANI back, I need to get rid of it. 
+
         # Out of distribution from RestrictedImageNet classes
         for class_name in self.data_dict:
+            #I am adding a statement for the situations in which we have classes that are in the RIN but not in OOD
+            if class_name not in self.data_dict_OOD or len(self.data_dict_OOD[class_name]) == 0:
+                print(f"Skipping {class_name}: No OOD data found.")
+                continue  # Skip if no corresponding OOD images
+
+
             triplet_paths_list += [[(img_path[len(f"{self.data_root}/"):], f'OOD-{class_name}'), target_class_name] 
-                                   for img_path in np.random.choice(self.data_dict_OOD[class_name], size=10, replace=False)
+                                   for img_path in np.random.choice(self.data_dict_OOD[class_name], size=1, replace=False)
                                    for target_class_name in self.data_dict if target_class_name != class_name]
-        # Uniform Noise Image
-        triplet_paths_list += [[('', 'UNI'), target_class_name] for target_class_name in self.data_dict] * 5
+        
+        # Uniform Noise Image (DROPPED)
+        # triplet_paths_list += [[('', 'UNI'), target_class_name] for target_class_name in self.data_dict] * 5
         return triplet_paths_list
     
     def get_images(self, image_paths, use_transform=True):
@@ -79,10 +102,11 @@ class GenV6(GenV3):
     
     def model_subjects_predict(self, ds, df_agg, g, batch_size=50):
         from torch.nn.functional import softmax
-        if np.isnan(g.interp_alpha):
-            model_subjects_dict = self.model_kwargs_dict[g.model_name]['model_subjects']
-        else:
-            model_subjects_dict = self.contrast_blend_model_subjects
+        model_subjects_dict = self.model_kwargs_dict[g.model_name]['model_subjects']
+        # if np.isnan(g.interp_alpha):
+        #     model_subjects_dict = self.model_kwargs_dict[g.model_name]['model_subjects']
+        # else:
+        #     model_subjects_dict = self.contrast_blend_model_subjects
         
         for model_subject_name, model_subject_maker in model_subjects_dict.items():
             cprint1(f"Model-subject [{model_subject_name}]")
