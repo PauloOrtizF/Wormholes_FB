@@ -92,7 +92,8 @@ class GenV1:
         folder_ds = ImageFolder(root=f"{ds.data_path}/val", label_mapping=ds.label_mapping)
         data_dict = invert_dict(dict(folder_ds.samples))
         k = min([len(v) for v in data_dict.values()])
-        self.data_dict = {self.class_dict[int(lbl)]: v[:k] for lbl, v in data_dict.items()}
+        # self.data_dict = {self.class_dict[int(lbl)]: v[:k] for lbl, v in data_dict.items()} #This is what they have in the original. I want to see whether now it changes things
+        self.data_dict = {self.class_dict[int(lbl)]: random.sample(v, k) for lbl, v in data_dict.items()}
         self.class_name_to_index = {v: k for k, v in self.class_dict.items()}
         
         # This includes an anti-aliasing resize on a PIL image

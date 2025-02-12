@@ -3,6 +3,7 @@ from wormholes import PROJECT_ROOT
 from wormholes.tools import *
 from wormholes.attacker import interp
 import torch
+import random
 from torch.nn.functional import cross_entropy
 from torchvision import transforms
 from wormholes.model_utils import make_and_restore_model, get_restricted_imagenet_mapped_model
