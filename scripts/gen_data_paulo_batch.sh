@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=perturb            # Job name
+#SBATCH --job-name=targ_perturb            # Job name
 #SBATCH --output=perturb_%A_%a.out    # Standard output (%A is the job ID, %a is the array index)
 #SBATCH --error=perturb_%A_%a.err     # Standard error (%A is the job ID, %a is the array index)
 #SBATCH --ntasks=1                    # Number of tasks (1 for single-task jobs)
-#SBATCH --time=04:00:00               # Time limit (hh:mm:ss)
+#SBATCH --time=24:00:00               # Time limit (hh:mm:ss)
 #SBATCH --mem=24G                     # Memory required per node
 #SBATCH --gpus=1
 #SBATCH --partition=gpu  #asking for a gpu

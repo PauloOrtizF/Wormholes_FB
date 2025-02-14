@@ -77,7 +77,7 @@ class GenV6(GenV3):
 
 
             triplet_paths_list += [[(img_path[len(f"{self.data_root}/"):], f'OOD-{class_name}'), target_class_name] 
-                                   for img_path in np.random.choice(self.data_dict_OOD[class_name], size=1, replace=False)
+                                   for img_path in np.random.choice(self.data_dict_OOD[class_name], size=50, replace=False)
                                    for target_class_name in self.data_dict if target_class_name != class_name]
         
         # Uniform Noise Image (DROPPED)
